@@ -4,7 +4,10 @@ import React from "react";
 import TerminalWindow from "../components/TerminalWindow";
 import Head from "next/head";
 import Container from "../components/Container";
-import Marquee from "../components/marquee";
+import dynamic from 'next/dynamic'
+
+const Marquee = dynamic(import('../components/marquee'),
+{ ssr: false })
 
 export default () => (
 	<Layout title="Jeremy Smith">
@@ -42,8 +45,9 @@ export default () => (
 		<Container grid col_1 row_1>
 			<div className="grid-item-wrapper">
 				<div className="grid-item-container">
-				<Marquee text="this is a very very very very very very very very very very very very very very very very long text" />
-
+				<Marquee
+        text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ea laboriosam molestiae corrupti eligendi sed error dolore consequuntur maxime saepe. Nam corrupti velit autem incidunt, aut atque mollitia ipsa obcaecati."
+      />
 				</div>
 			</div>
 		</Container>
@@ -123,22 +127,6 @@ export default () => (
 				font-size: var(--h2-large);
 			}
 
-			@keyframes marquee {
-    0%   { transform: translate(0, 0); animation-timing-function: ease-in;}
-    100% { transform: translate(-100%, 0); animation-timing-function: ease-out;}
-}
-
-			@keyframes ticker {
-				0% {
-					-webkit-transform: translate3d(0, 0, 0);
-					transform: translate3d(0, 0, 0);
-					visibility: visible;
-				}
-				100% {
-					-webkit-transform: translate3d(-100%, 0, 0);
-					transform: translate3d(-100%, 0, 0);
-				}
-			}
 		`}</style>
 	</Layout>
 );

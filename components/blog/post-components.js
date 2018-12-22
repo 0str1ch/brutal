@@ -1,4 +1,3 @@
-import Highlight from 'react-highlight/lib/optimized';
 
 const H1 = ({ children }) => (
   <h1 className="fw6">

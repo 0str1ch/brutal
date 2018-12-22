@@ -99,13 +99,13 @@ export default () => (
 			}
 
 			::-moz-selection {
-				background: var(--primary);
-				color: var(--primary-light);
+				background: var(--hint);
+				color: var(--primary-hue);
 			}
 
 			::selection {
-				background: var(--primary);
-				color: var(--primary-light);
+				background: var(--hint);
+				color: var(--primary-hue);
 			}
 
 			button:focus,

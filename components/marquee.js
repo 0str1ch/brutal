@@ -88,6 +88,11 @@ class Marquee extends Component {
 .drag-span {
   position: relative;
 }
+
+::selection {
+				background: transparent;
+				color: initial;
+			}
 		`}</style>
       </div>
     )

@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Layout from '../Layout';
+import Link from 'next/link'
+import Layout from '../Layout'
 
 export default ({ type, link, title, prefetch, featuredImage, subtitle }) => (
   <div className="case-study">
@@ -9,11 +9,7 @@ export default ({ type, link, title, prefetch, featuredImage, subtitle }) => (
         align-items: center;
         height: 380px;
         text-align: left;
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.25) 110%
-          ),
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25) 110%),
           url(${featuredImage});
         background-size: cover;
         background-position: center 30%;
@@ -60,14 +56,13 @@ export default ({ type, link, title, prefetch, featuredImage, subtitle }) => (
         </Link>
         <div className="content">{subtitle}</div>
         <div className="remove-shadow">
-        <Link href={href} as={as} prefetch={prefetch}>
-        <a href={link} invert>
-            Read More
-          </a>
-        </Link>
-          
+          <Link href={href} as={as} prefetch={prefetch}>
+            <a href={link} invert>
+              Read More
+            </a>
+          </Link>
         </div>
       </div>
     </Layout>
   </div>
-);
+)

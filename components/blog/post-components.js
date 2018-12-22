@@ -1,4 +1,3 @@
-
 const H1 = ({ children }) => (
   <h1 className="fw6">
     {children}
@@ -9,7 +8,7 @@ const H1 = ({ children }) => (
       font-size: 2rem;
     `}</style>
   </h1>
-);
+)
 
 const Ul = ({ children }) => (
   <ul>
@@ -19,7 +18,7 @@ const Ul = ({ children }) => (
       margin-bottom: 2rem;
     `}</style>
   </ul>
-);
+)
 
 const Li = ({ children }) => (
   <li>
@@ -37,7 +36,7 @@ const Li = ({ children }) => (
       }
     `}</style>
   </li>
-);
+)
 
 const Code = ({ children, syntax, className }) => {
   return (
@@ -60,8 +59,8 @@ const Code = ({ children, syntax, className }) => {
         `}
       </style>
     </pre>
-  );
-};
+  )
+}
 
 const P = ({ children }) => {
   return (
@@ -74,8 +73,8 @@ const P = ({ children }) => {
         }
       `}</style>
     </p>
-  );
-};
+  )
+}
 
 const Hr = () => (
   <div>
@@ -88,7 +87,7 @@ const Hr = () => (
       }
     `}</style>
   </div>
-);
+)
 
 export const components = {
   h1: H1,
@@ -97,4 +96,4 @@ export const components = {
   code: Code,
   p: P,
   hr: Hr
-};
+}

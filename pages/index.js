@@ -4,90 +4,141 @@ import React from "react";
 import TerminalWindow from "../components/TerminalWindow";
 import Head from "next/head";
 import Container from "../components/Container";
+import Marquee from "../components/marquee";
 
 export default () => (
 	<Layout title="Jeremy Smith">
 		<Head>
 			<link rel="canonical" href="https://jeremymade.com" />
 		</Head>
-		<Container padding>
-			<section className="col-2">
-			<article className="introduce">
-				<h1>Hi.</h1>
-				<p>
-					Jeremy Smith is a front-end web developer and product designer in
-					Tampa.
-				</p>
-				<p>
-					His recent work includes creating the font pairing web app{" "}
-					<a
-						href="http://typebomb.com"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="connectHover1"
-					>
-						Typebomb
-					</a>
-					, implementing an ecommerce solution for{" "}
-					<a
-						href="https://goathouserecords.bandcamp.com/"
-						target="_blank"
-						title="View the Goat House Records web store"
-						rel="noopener noreferrer"
-						className="connectHover2"
-					>
-						Goat House Records
-					</a>
-					, and developing a{" "}
-					<a
-						href="http://stantonherald.com/"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="connectHover3"
-					>
-						Star Citizen fan site
-					</a>{" "}
-					in WordPress.
-				</p>
-				<p>
-					You can <code>git clone</code> some of his open source
-					projects on{" "}
-					<a
-						href="https://github.com/0str1ch"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						GitHub
-					</a>
-					, or say hi on{" "}
-					<a
-						href="https://instagram.com/jeremy_made_it"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Instagram
-					</a>{" "}
-					or{" "}
-					<a
-						href="https://www.reddit.com/user/NaughtyOstrich"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Reddit
-					</a>
-					.
-				</p>
-			</article>
-			<aside className="introduceMedia">
-				<TerminalWindow>
-					<p className="command">
-						git clone https://github.com/0str1ch/js-app.git
+		<Container grid col_2_1 row_1>
+			<div className="grid-item-wrapper">
+				<div className="grid-item-container">
+					<h1>
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+						magnam eum veniam ipsum culpa soluta dolorem optio mollitia illum,
+						a, quos quidem? Minus eum itaque tenetur eius nisi exercitationem
+						sapiente!
+					</h1>
+				</div>
+			</div>
+			<div className="grid-item-wrapper">
+				<div className="grid-item-container border">
+					<img src="/static/pick-me-elon.svg" alt="" />
+				</div>
+				<div className="grid-item-container">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+						numquam consectetur vero harum libero in nesciunt enim, totam,
+						voluptatem dolorum illum? Praesentium debitis deleniti pariatur
+						expedita nam aperiam ducimus sapiente. Dolorem consectetur incidunt
+						aut illo modi consequuntur expedita suscipit ullam. Voluptatem quia
+						itaque iusto maxime, doloremque aut libero, repudiandae vero,
+						cupiditate voluptates dolores.
 					</p>
-					<p className="command">npm install</p>
-					<p className="command">npm run dev</p>
-				</TerminalWindow>
-			</aside>
-			</section>
+				</div>
+			</div>
 		</Container>
+		<Container grid col_1 row_1>
+			<div className="grid-item-wrapper">
+				<div className="grid-item-container">
+				<Marquee text="this is a very very very very very very very very very very very very very very very very long text" />
+
+				</div>
+			</div>
+		</Container>
+		<Container grid col_2 row_1>
+			<div className="grid-item-wrapper">
+				<div className="grid-item-container">
+					<h1>
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+						magnam eum veniam ipsum culpa soluta dolorem optio mollitia illum,
+						a, quos quidem? Minus eum itaque tenetur eius nisi exercitationem
+						sapiente!
+					</h1>
+				</div>
+			</div>
+			<div className="grid-item-wrapper">
+				<div className="grid-item-container">
+					<h3>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+						numquam consectetur vero harum libero in nesciunt enim, totam,
+						voluptatem dolorum illum? Praesentium debitis deleniti pariatur
+						expedita nam aperiam ducimus sapiente. Dolorem consectetur incidunt
+						aut illo modi consequuntur expedita suscipit ullam. Voluptatem quia
+						itaque iusto maxime, doloremque aut libero, repudiandae vero,
+						cupiditate voluptates dolores.
+					</h3>
+				</div>
+			</div>
+		</Container>
+		<Container grid col_1 row_1>
+			<div className="grid-item-wrapper">
+				<div className="grid-item-container">
+					<h1>
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+						magnam eum veniam ipsum culpa soluta dolorem optio mollitia illum,
+						a, quos quidem? Minus eum itaque tenetur eius nisi exercitationem
+						sapiente!
+					</h1>
+				</div>
+			</div>
+		</Container>
+		<style jsx global>{`
+			.grid-item-container {
+				padding: 1.5rem;
+			}
+
+			.border {
+				border-bottom: 4px solid #000;
+			}
+
+			.scroll-x {
+				width: 100%;
+				overflow: hidden;
+				height: 4rem;
+				padding-left: 100%;
+				box-sizing: content-box;
+			}
+
+			.scroll-x-wrapper {
+				display: inline-block;
+				height: 4rem;
+				line-height: 4rem;
+				white-space: nowrap;
+				padding-right: 100%;
+				box-sizing: content-box;
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+				-webkit-animation-timing-function: linear;
+				animation-timing-function: linear;
+				-webkit-animation-name: ticker;
+				animation-name: ticker;
+				-webkit-animation-duration: 30s;
+				animation-duration: 30s;
+			}
+
+			.scroll-x-item {
+				display: inline-block;
+				font-size: var(--h2-large);
+			}
+
+			@keyframes marquee {
+    0%   { transform: translate(0, 0); animation-timing-function: ease-in;}
+    100% { transform: translate(-100%, 0); animation-timing-function: ease-out;}
+}
+
+			@keyframes ticker {
+				0% {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					visibility: visible;
+				}
+				100% {
+					-webkit-transform: translate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+				}
+			}
+		`}</style>
 	</Layout>
 );

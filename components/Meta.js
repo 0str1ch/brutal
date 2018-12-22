@@ -146,7 +146,6 @@ export default () => (
 			fieldset,
 			figcaption,
 			figure,
-			footer,
 			form,
 			header,
 			hgroup,
@@ -195,6 +194,7 @@ export default () => (
 				padding: 0;
 				border: 0;
 				vertical-align: baseline;
+				word-break: break-word;
 			}
 
 			pre code {
@@ -255,7 +255,6 @@ export default () => (
 			details,
 			figcaption,
 			figure,
-			footer,
 			header,
 			main,
 			nav,

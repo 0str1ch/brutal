@@ -76,13 +76,14 @@ export default class Header extends React.Component {
 
 				<style jsx>{`
 					header {
-						padding: 1rem;
+						padding: 0 1.5rem;
 						display: flex;
 						justify-content: space-between;
 						position: relative;
 						align-items: center;
-						height: 100%;
+						height: 5rem;
 						z-index: 2000;
+						border-bottom: 4px solid #000;
 					}
 					nav {
 						position: absolute;

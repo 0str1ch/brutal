@@ -2,7 +2,6 @@ import Header from "./Header";
 import Meta from "./Meta";
 import Head from "next/head";
 
-
 export default ({ title, description, children }) => (
 	<main className="layoutWrapper">
 		<Head>
@@ -20,25 +19,73 @@ export default ({ title, description, children }) => (
 		</Head>
 		<Header />
 		<div className="layoutInner">{children}</div>
+		<footer>
+			<h1>later, dude.</h1>
+		</footer>
 		<style jsx global>
 			{`
+				body {
+					position: relative;
+				}
+
+				body:after {
+					top: 0;
+					left: 0;
+				}
+
+				body:after,
+				body:before {
+					content: "";
+					position: fixed;
+					width: 4px;
+					height: 100%;
+					background: #000;
+					display: inline-block;
+					z-index: 9999;
+				}
+
+				body:before {
+					bottom: 0;
+					right: 0;
+				}
 				.layoutWrapper {
-					align-items: stretch;
 					display: flex;
 					flex-direction: column;
 					min-height: 100vh;
 					height: 100%;
 					width: 100%;
-					max-width: 1440px;
-					margin: 0 auto;
+					margin: 0;
 					position: relative;
 					overflow-scrolling: touch;
 				}
 
-				.layoutInner {
-					display: block;
+				.layoutWrapper:after {
+					top: 0;
+				}
+
+				.layoutWrapper:after,
+				.layoutWrapper:before {
+					content: "";
+					position: fixed;
+					left: 0;
 					width: 100%;
-					padding: 0 1rem;
+					height: 4px;
+					background: #000;
+					display: inline-block;
+					z-index: 9999;
+				}
+
+				.layoutWrapper:before {
+					bottom: 0;
+				}
+
+				.layoutInner {
+					align-items: stretch;
+					flex-direction: column;
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+					padding: 0;
 				}
 
 				@media screen and (min-width: 60em) {
@@ -57,38 +104,6 @@ export default ({ title, description, children }) => (
 						transform: translateY(0px);
 						opacity: 1;
 					}
-				}
-
-				.introduce {
-					display: flex;
-					flex-direction: column;
-					place-content: center;
-					animation: fadeup 300ms cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s 1
-						normal both running;
-					will-change: transform, opacity;
-				}
-
-				.introduceMedia {
-					place-content: center;
-					display: flex;
-					flex-direction: column;
-					animation: fadeup 300ms cubic-bezier(0.39, 0.575, 0.565, 1) 0.61s 1
-						normal both running;
-				}
-
-				.BaseImage {
-				}
-
-				.introduce span {
-					color: var(--secondary);
-				}
-
-				.introduce h1 {
-					font-weight: 700;
-				}
-
-				.connectHover1:hover ~ section .terminalWrapper {
-					opacity: 0;
 				}
 
 				/** Web Fonts START **/
@@ -494,4 +509,3 @@ export default ({ title, description, children }) => (
 		</style>
 	</main>
 );
-

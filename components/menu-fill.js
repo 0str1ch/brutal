@@ -1,22 +1,22 @@
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
-import { Spring } from 'react-spring'
+import { Spring, config } from 'react-spring'
 import ActiveLink from './ActiveLink'
 import withPure from '../components/hoc'
 
 const colors = ['#000']
 
-class MenuFill extends Component {
+class MenuFill extends PureComponent {
   state = { focused: undefined }
   render() {
     return (
-      <Flipper flipKey={this.state.focused} >
+      <Flipper flipKey={this.state.focused}>
         {typeof this.state.focused === 'string' ? (
-          <Flipped flipId={this.state.focused} spring='wobbly'>
+          <Flipped flipId={this.state.focused} scale stagger>
             <div className="focusedItem" style={{ backgroundColor: this.state.focused }}>
               <Flipped inverseFlipId={this.state.focused} transformOrigin="0 0">
                 <div className="header__mobile-nav">
-                  <Flipped flipId={`${this.state.focused}-button`} translate>
+                  <Flipped flipId={`${this.state.focused}-button`} scale stagger>
                     <Spring  delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                       {props => (
                         <div style={props}>
@@ -65,12 +65,12 @@ class MenuFill extends Component {
         ) : (
           <div className="list">
             {colors.map(color => (
-              <Flipped flipId={color} key={color}>
+              <Flipped flipId={color} key={color} stagger spring="veryGentle" scale>
                 <div key={color} className="listItem" onClick={() => this.setState({ focused: color })}>
                   <Flipped inverseFlipId={color} key={color}>
                     <div key={color}>
                       <Flipped flipId={`${color}-text`} translate key={color}>
-                        <Spring  delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                        <Spring delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                           {props => (
                             <div style={props}>
                               <span className="nav-icon" onClick={() => this.setState({ focused: null })}>

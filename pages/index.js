@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import React from 'react'
 import Head from 'next/head'
 import Container from '../components/Container'
-import AnimatedSquare from '../components/expander'
+import Expander from '../components/expander-menu'
 import { Spring } from 'react-spring'
 
 export default () => (
@@ -48,7 +48,6 @@ export default () => (
     <Container grid col_2 row_1>
       <div className="grid-item-wrapper">
         <div className="grid-item-container">
-          <AnimatedSquare />
         </div>
       </div>
       <div className="grid-item-wrapper">

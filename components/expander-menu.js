@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import ActiveLink from './ActiveLink'
-import { Spring } from 'react-spring'
-import withPure from '../components/hoc'
+import { Spring, config } from 'react-spring'
+import withPure from './hoc'
 
-
-class AnimatedSquare extends Component {
+class Expander extends Component {
   state = { fullScreen: false }
 
   toggleFullScreen = () => {
@@ -20,23 +19,30 @@ class AnimatedSquare extends Component {
         <Flipper flipKey={this.state.fullScreen}>
           <Flipped flipId="square">
             <div className={this.state.fullScreen ? 'full-screen-square' : 'square'}>
-              <button onClick={this.toggleFullScreen} />
+
+                    <Flipped inverseFlipId="square" scale
+                      className={this.state.fullScreen ? 'menu-icon menu-icon_open' : 'menu-icon menu-icon_closed'}
+                      onClick={this.toggleFullScreen}>
+                      Menu
+											</Flipped>
+                  </div>
+
               <nav className="header__mobile-nav container">
-                <Spring reset='true' delay={800} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                <Spring reset="true" delay={800} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                  {props => (
+                    <div style={props}>
+                      <ActiveLink href="/">Bigtext</ActiveLink>
+                    </div>
+                  )}
+                </Spring>
+                <Spring reset="true" delay={900} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                   {props => (
                     <div style={props}>
                       <ActiveLink href="/bigtext">Bigtext</ActiveLink>
                     </div>
                   )}
                 </Spring>
-								<Spring reset='true' delay={900} from={{ opacity: 0 }} to={{ opacity: 1 }}>
-                  {props => (
-                    <div style={props}>
-                      <ActiveLink href="/bigtext">Bigtext</ActiveLink>
-                    </div>
-                  )}
-                </Spring>
-								<Spring reset='true' delay={1000} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                <Spring reset="true" delay={1000} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                   {props => (
                     <div style={props}>
                       <ActiveLink href="/bigtext">Bigtext</ActiveLink>
@@ -44,24 +50,48 @@ class AnimatedSquare extends Component {
                   )}
                 </Spring>
               </nav>
-            </div>
           </Flipped>
         </Flipper>
         <style jsx global>{`
           .square {
             position: absolute;
-            width: 5rem;
-            height: 5rem;
             cursor: pointer;
-            background-color: #000;
+            font-size: var(--text-small);
           }
 
-          .square nav div a {
-            display: none;
+          .menu-icon {
+            height: 4rem;
+            width: 4rem;
           }
 
-          .square h1 {
+          .square nav {
             display: none;
+            opacity: 0;
+          }
+
+          .menu-icon_open {
+            color: #000;
+            cursor: pointer;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            height: auto;
+            place-items: center;
+            place-content: flex-end;
+            padding: 2rem;
+            background: #fff;
+            text-align: center;
+          }
+
+          .menu-icon_closed {
+            color: #fff;
+            background: #000;
+            cursor: pointer;
+            display: flex;
+            place-content: center;
+            place-items: center;
           }
 
           .full-screen-square {
@@ -86,5 +116,4 @@ class AnimatedSquare extends Component {
   }
 }
 
-export default withPure(AnimatedSquare)
-
+export default withPure(Expander)

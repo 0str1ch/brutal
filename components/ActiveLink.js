@@ -21,7 +21,7 @@ const ActiveLink = ({ children, router, href }) => (
           position: relative;
           place-content: center;
           place-self: center;
-
+          font-size: var(--h1-xl);
         }
 
         .nav-button:hover {

@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import { Spring } from 'react-spring'
 import ActiveLink from './ActiveLink'
+import withPure from '../components/hoc'
 
 const colors = ['#000']
 
@@ -16,11 +17,11 @@ class MenuFill extends Component {
               <Flipped inverseFlipId={this.state.focused} transformOrigin="0 0">
                 <div className="header__mobile-nav">
                   <Flipped flipId={`${this.state.focused}-button`} translate>
-                    <Spring reset="true" delay={900} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                    <Spring reset="true" delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                       {props => (
                         <div style={props}>
                           <span className="nav-icon" onClick={() => this.setState({ focused: null })}>
-                            Menu
+                            Close Menu
                           </span>
                         </div>
                       )}
@@ -28,7 +29,7 @@ class MenuFill extends Component {
                   </Flipped>
                   <Flipped flipId={`${this.state.focused}-nav`} translate>
                     <nav className="header__mobile-nav container">
-                      <Spring reset="true" delay={800} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                      <Spring reset="true" delay={400} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                         {props => (
                           <div style={props}>
                             <ActiveLink href="/" onClick={() => this.setState({ focused: null })}>
@@ -37,7 +38,7 @@ class MenuFill extends Component {
                           </div>
                         )}
                       </Spring>
-                      <Spring reset="true" delay={900} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                      <Spring reset="true" delay={550} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                         {props => (
                           <div style={props}>
                             <ActiveLink href="/blog" onClick={() => this.setState({ focused: null })}>
@@ -46,7 +47,7 @@ class MenuFill extends Component {
                           </div>
                         )}
                       </Spring>
-                      <Spring reset="true" delay={1000} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                      <Spring reset="true" delay={700} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                         {props => (
                           <div style={props}>
                             <ActiveLink href="/work" onClick={() => this.setState({ focused: null })}>
@@ -69,7 +70,7 @@ class MenuFill extends Component {
                   <Flipped inverseFlipId={color} key={color}>
                     <div key={color}>
                       <Flipped flipId={`${color}-text`} translate key={color}>
-                        <Spring reset="true" delay={900} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                        <Spring reset="true" delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                           {props => (
                             <div style={props}>
                               <span className="nav-icon" onClick={() => this.setState({ focused: null })}>
@@ -89,10 +90,17 @@ class MenuFill extends Component {
         <style jsx>{`
           .focusedItem {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: -50%;
+            left: -50%;
             bottom: 0;
-            right: 0;
+            right: 0%;
+            height: 200%;
+            width: 200%;
+            /* transform: scale(5); */
+            /*background-image: url(/static/da-band.jpg); */
+            /* clip-path: circle(50% at 50% 50%); */
+            /* margin: 1rem; */
+            border-radius: 100%;
           }
           .focusedItem > div {
             display: flex;
@@ -107,6 +115,8 @@ class MenuFill extends Component {
 
           .nav-icon {
             color: #000;
+            cursor: pointer;
+            font-size: var(--h3-medium);
           }
 
           .header__mobile-nav {
@@ -120,4 +130,4 @@ class MenuFill extends Component {
   }
 }
 
-export default MenuFill
+export default withPure(MenuFill)

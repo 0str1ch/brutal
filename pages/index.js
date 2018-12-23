@@ -41,7 +41,7 @@ export default () => (
     <Container grid col_1 row_1>
       <div className="grid-item-wrapper">
         <div className="marquee-item-container">
-          <h1>Work. Play. Fuck. Hate.</h1>
+          <h1>Work. Play. Fuck. Repeat.</h1>
         </div>
       </div>
     </Container>

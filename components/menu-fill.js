@@ -10,14 +10,14 @@ class MenuFill extends Component {
   state = { focused: undefined }
   render() {
     return (
-      <Flipper flipKey={this.state.focused} duration={750}>
+      <Flipper flipKey={this.state.focused} >
         {typeof this.state.focused === 'string' ? (
-          <Flipped flipId={this.state.focused}>
+          <Flipped flipId={this.state.focused} spring='wobbly'>
             <div className="focusedItem" style={{ backgroundColor: this.state.focused }}>
               <Flipped inverseFlipId={this.state.focused} transformOrigin="0 0">
                 <div className="header__mobile-nav">
                   <Flipped flipId={`${this.state.focused}-button`} translate>
-                    <Spring reset="true" delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                    <Spring  delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                       {props => (
                         <div style={props}>
                           <span className="nav-icon" onClick={() => this.setState({ focused: null })}>
@@ -29,7 +29,7 @@ class MenuFill extends Component {
                   </Flipped>
                   <Flipped flipId={`${this.state.focused}-nav`} translate>
                     <nav className="header__mobile-nav container">
-                      <Spring reset="true" delay={400} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                      <Spring  delay={400} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                         {props => (
                           <div style={props}>
                             <ActiveLink href="/" onClick={() => this.setState({ focused: null })}>
@@ -38,7 +38,7 @@ class MenuFill extends Component {
                           </div>
                         )}
                       </Spring>
-                      <Spring reset="true" delay={550} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                      <Spring  delay={550} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                         {props => (
                           <div style={props}>
                             <ActiveLink href="/blog" onClick={() => this.setState({ focused: null })}>
@@ -47,7 +47,7 @@ class MenuFill extends Component {
                           </div>
                         )}
                       </Spring>
-                      <Spring reset="true" delay={700} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                      <Spring  delay={700} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                         {props => (
                           <div style={props}>
                             <ActiveLink href="/work" onClick={() => this.setState({ focused: null })}>
@@ -70,7 +70,7 @@ class MenuFill extends Component {
                   <Flipped inverseFlipId={color} key={color}>
                     <div key={color}>
                       <Flipped flipId={`${color}-text`} translate key={color}>
-                        <Spring reset="true" delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                        <Spring  delay={200} from={{ opacity: 0 }} to={{ opacity: 1 }}>
                           {props => (
                             <div style={props}>
                               <span className="nav-icon" onClick={() => this.setState({ focused: null })}>
